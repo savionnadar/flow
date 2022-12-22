@@ -6,5 +6,5 @@ To check out a live demo of the application check out https://infinite-chat-savi
 Setup:
 - run ```npm i && npm start``` for both client and server side to start the development server
 
-## Stay up to date with new projects
-New major projects coming soon, subscribe to the mailing list to stay up to date https://resource.jsmasterypro.com/newsletter
+## Note!
+Make sure you create a stream account, followed by a twilio account. After which you must change the credentials in the .env file and the App.jsx file in the client directory, for the same to work. 
