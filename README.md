@@ -1,7 +1,7 @@
-# Infinite Chat App
+# Flow Chat App
 
 ## Introduction
-To check out a live demo of the application check out https://infinite-chat-savion.netlify.app
+To check out a live demo of the application check out https://flow-savion.netlify.app
 
 Setup:
 - run ```npm i && npm start``` for both client and server side to start the development server
