@@ -61,9 +61,16 @@ const Auth = () => {
 
   return (
     <div className="auth__form-container">
+      <div class="background-gradients">
+        <div class="gradient-blob blob-1"></div>
+        <div class="gradient-blob blob-2"></div>
+        <div class="gradient-blob blob-3"></div>
+        <div class="gradient-blob blob-4"></div>
+        <div class="gradient-blob blob-5"></div>
+      </div>
       <div className="auth__form-container_fields">
         <div className="auth__form-container_fields-content">
-          <p>{isSignup ? "Sign Up" : "Sign In"}</p>
+          <p className="sign">{isSignup ? "Sign Up" : "Sign In"}</p>
           <form onSubmit={handleSubmit}>
             {isSignup && (
               <div className="auth__form-container_fields-content_input">
@@ -133,13 +140,15 @@ const Auth = () => {
                 />
               </div>
             )}
-            <div className="auth__form-container_fields-content_button">
+            <div className="auth__form-container_fields-content_button" >
               <button>{isSignup ? "Sign Up" : "Sign In"}</button>
             </div>
           </form>
           <div className="auth__form-container_fields-account">
             <p>
-              {isSignup ? "Already have an account? " : "Don't have an account? "}
+              {isSignup
+                ? "Already have an account? "
+                : "Don't have an account? "}
               <span onClick={switchMode}>
                 {isSignup ? "Sign In" : "Sign Up"}
               </span>

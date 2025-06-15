@@ -3,8 +3,9 @@ import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
 import { ChannelSearch, TeamChannelList, TeamChannelPreview } from './';
-import InfinityIcon from '../assets/infinity.png'
-import LogoutIcon from '../assets/logout.png'
+import InfinityIcon from '../assets/infinity.png';
+import LogoutIcon from '../assets/logout.svg';
+import dropDownIcon from '../assets/dropdown.svg';
 
 const cookies = new Cookies();
 
@@ -12,11 +13,11 @@ const SideBar = ({ logout }) => (
     <div className="channel-list__sidebar">
         <div className="channel-list__sidebar__icon1">
             <div className="icon1__inner">
-                <img src={InfinityIcon} alt="Infinity" width="30" />
+                <img className="side_con" src={InfinityIcon} alt="Infinity" width="30" />
             </div>
         </div>
         <div className="channel-list__sidebar__icon2">
-            <div className="icon1__inner" onClick={logout}>
+            <div className="icon2__inner" onClick={logout}>
                 <img src={LogoutIcon} alt="Logout" width="30" />
             </div>
         </div>
@@ -117,29 +118,39 @@ const ChannelListContainer = ({ setCreateType, setIsCreating, setIsEditing }) =>
     const [toggleContainer, setToggleContainer] = useState(false);
 
     return (
-        <>
-            <div className="channel-list__container">
-              <ChannelListContent 
-                setIsCreating={setIsCreating} 
-                setCreateType={setCreateType} 
-                setIsEditing={setIsEditing} 
-              />
-            </div>
+      <>
+        <div className="channel-list__container">
+          <ChannelListContent
+            setIsCreating={setIsCreating}
+            setCreateType={setCreateType}
+            setIsEditing={setIsEditing}
+          />
+        </div>
 
-            <div className="channel-list__container-responsive"
-                style={{ left: toggleContainer ? "0%" : "-89%", backgroundColor: "#005fff"}}
-            >
-                <div className="channel-list__container-toggle" onClick={() => setToggleContainer((prevToggleContainer) => !prevToggleContainer)}>
-                </div>
-                <ChannelListContent 
-                setIsCreating={setIsCreating} 
-                setCreateType={setCreateType} 
-                setIsEditing={setIsEditing}
-                setToggleContainer={setToggleContainer}
-              />
-            </div>
-        </>
-    )
+        <div
+          className="channel-list__container-responsive"
+          style={{
+            left: toggleContainer ? "0%" : "-89%",
+            backgroundColor: "#005fff",
+          }}
+        >
+          <div
+            className="channel-list__container-toggle"
+            onClick={() =>
+              setToggleContainer((prevToggleContainer) => !prevToggleContainer)
+            }
+          >
+            <img className='dropDownToggle' src={dropDownIcon} alt="" />
+          </div>
+          <ChannelListContent
+            setIsCreating={setIsCreating}
+            setCreateType={setCreateType}
+            setIsEditing={setIsEditing}
+            setToggleContainer={setToggleContainer}
+          />
+        </div>
+      </>
+    );
 
 }
 
